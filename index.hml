@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мои проекты</title>
+<style>
+  :root {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --text: #1c1e26;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #4f46e5;
+    --accent-soft: #eef2ff;
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ---------- Шапка ---------- */
+  header {
+    padding: 64px 0 40px;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+  }
+
+  /* ---------- Сетка проектов ---------- */
+  .section-title {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding-bottom: 60px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07);
+    border-color: #d1d5db;
+  }
+
+  .card h2 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    flex-grow: 1;
+    margin-bottom: 16px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .tag {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  .links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: opacity 0.15s ease;
+  }
+
+  .links a:hover { opacity: 0.75; }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-ghost {
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  /* ---------- Подвал ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 1.7rem; }
+    header { padding: 40px 0 32px; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="avatar">H</div>
+      <h1>Привет, я hiplol 👋</h1>
+      <p class="subtitle">Здесь собраны все мои проекты — от экспериментов до законченных штук.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Проекты</h2>
+    <div class="grid" id="projects"></div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> hiplol · Сделано на
+      <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>
+    </div>
+  </footer>
+
+  <script>
+    // ======================================================
+    //  ЗДЕСЬ ДОБАВЛЯЙТЕ СВОИ ПРОЕКТЫ
+    //  demo и repo можно не указывать — кнопка просто скроется
+    // ======================================================
+    const projects = [
+      {
+        title: "Telegram-бот для напоминаний",
+        description: "Бот, который присылает уведомления о важных делах в нужное время.",
+        tags: ["Python", "aiogram"],
+        repo: "https://github.com/hiplol/reminder-bot"
+      },
+      {
+        title: "Сайт-визитка",
+        description: "Одностраничный лендинг с адаптивной версткой и тёмной темой.",
+        tags: ["HTML", "CSS", "JS"],
+        demo: "https://hiplol.github.io/landing",
+        repo: "https://github.com/hiplol/landing"
+      },
+      {
+        title: "Парсер погоды",
+        description: "Скрипт, который собирает прогноз и сохраняет его в CSV-файл.",
+        tags: ["Python", "requests"],
+        repo: "https://github.com/hiplol/weather-parser"
+      }
+    ];
+
+    // ---------- Рендер карточек ----------
+    const grid = document.getElementById("projects");
+
+    if (projects.length === 0) {
+      grid.innerHTML = '<p style="color:#6b7280">Пока проектов нет, но это ненадолго 🙂</p>';
+    } else {
+      grid.innerHTML = projects.map(p => {
+        const tags = (p.tags || [])
+          .map(t => `<span class="tag">${t}</span>`)
+          .join("");
+
+        const links = [
+          p.demo ? `<a class="btn-primary" href="${p.demo}" target="_blank" rel="noopener">Посмотреть</a>` : "",
+          p.repo ? `<a class="btn-ghost" href="${p.repo}" target="_blank" rel="noopener">Код</a>` : ""
+        ].join("");
+
+        return `
+          <article class="card">
+            <h2>${p.title}</h2>
+            <p>${p.description}</p>
+            <div class="tags">${tags}</div>
+            <div class="links">${links}</div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

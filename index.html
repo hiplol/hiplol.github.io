@@ -65,8 +65,10 @@
     padding: 0 24px;
   }
 
-  header {
-    padding: 100px 0 120px;
+  /* УМЕНЬШИЛИ ОТСТУП СНИЗУ: было 120px, стало 60px */
+  header.container {
+    padding-top: 20vh;
+    padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -135,7 +137,7 @@
     color: var(--muted);
     font-size: 1.1rem;
     max-width: 500px;
-    margin-bottom: 16px;
+    margin-bottom: 0; /* Убрали лишний отступ снизу */
   }
 
   .section-header {
@@ -299,7 +301,8 @@
 
   @media (max-width: 600px) {
     h1 { font-size: 2.8rem; }
-    header { padding: 60px 0 80px; }
+    /* На мобилках также уменьшили отступ снизу (было 80px) */
+    header.container { padding-top: 12vh; padding-bottom: 40px; }
     .links { flex-direction: column; }
     .btn { width: 100%; }
   }
@@ -314,7 +317,7 @@
     <img src="https://ui-avatars.com/api/?name=H&background=050505&color=a3e635&size=128&font-size=0.4&bold=true" alt="Avatar" class="avatar">
     
     <div class="status-badge">
-      <span class="status-dot"></span> <span id="status-text">Turning coffee into code</span>
+      <span class="status-dot"></span> <span id="status-text">Turning coffee into code ☕</span>
     </div>
     
     <h1>Hi, I'm <span class="gradient-text">hiplol</span></h1>
@@ -338,8 +341,8 @@
 
   <script>
     const statuses = [
-      "Turning coffee into code",
-      "Works on my machine",
+      "Turning coffee into code ☕",
+      "Works on my machine 🤷‍♂️",
       "Probably debugging...",
       "Ctrl+Z enthusiast",
       "Compiling ideas...",
